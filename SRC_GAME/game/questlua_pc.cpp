@@ -58,5 +58,6 @@ int pc_get_okay_global_rank(lua_State* L)
  
 
 // ADD UNDER // DODAJ POD //
+
 { "get_okay_global_rank",    pc_get_okay_global_rank    },
 { "get_okay_rund_rank",    pc_get_okay_rund_rank    },
