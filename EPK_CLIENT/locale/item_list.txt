@@ -1,0 +1,9 @@
+// ADD // DODAJ //
+
+71194    ETC    icon/item/71194.tga     
+71195    ETC    icon/item/71195.tga     
+71196    ETC    icon/item/71196.tga     
+79505    ETC    icon/item/79505.tga     
+79506    ETC    icon/item/79506.tga
+79507    ETC    icon/item/79507.tga     
+79508    ETC    icon/item/79508.tga
