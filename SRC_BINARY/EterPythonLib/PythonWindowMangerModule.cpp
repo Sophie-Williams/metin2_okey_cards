@@ -134,3 +134,67 @@ PyObject * wndMgrSetCardSlot(PyObject * poSelf, PyObject * poArgs)
 
     return Py_BuildNone();
 }
+
+
+===============================================================
+    
+
+// FIND // ZNAJDŹ //
+
+PyObject * wndImageAppendImage(PyObject * poSelf, PyObject * poArgs)
+{
+    UI::CWindow * pWindow;
+    if (!PyTuple_GetWindow(poArgs, 0, &pWindow))
+        return Py_BuildException();
+    char * szFileName;
+    if (!PyTuple_GetString(poArgs, 1, &szFileName))
+        return Py_BuildException();
+
+
+    ((UI::CAniImageBox*)pWindow)->AppendImage(szFileName);
+
+
+    return Py_BuildNone();
+}
+
+
+// ADD UNDER // DODAJ POD //
+
+PyObject * wndImageResetFrame(PyObject * poSelf, PyObject * poArgs)
+{
+    UI::CWindow * pWindow;
+    if (!PyTuple_GetWindow(poArgs, 0, &pWindow))
+        return Py_BuildException();
+
+
+    ((UI::CAniImageBox*)pWindow)->ResetFrame();
+
+
+    return Py_BuildNone();
+}
+
+
+===============================================================
+    
+
+// FIND // ZNAJDŹ //
+    
+{ "SetSlot",                    wndMgrSetSlot,                        METH_VARARGS },
+
+
+// ADD UNDER // DODAJ POD //
+
+{ "SetCardSlot",                    wndMgrSetCardSlot,                        METH_VARARGS },
+
+
+===============================================================
+    
+
+// FIND // ZNAJDŹ //
+    
+{ "AppendImage",                    wndImageAppendImage,                        METH_VARARGS },
+
+
+// ADD UNDER // DODAJ POD //
+
+{ "ResetFrame",                    wndImageResetFrame,                        METH_VARARGS },
