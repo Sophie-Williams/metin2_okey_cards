@@ -1,0 +1,7 @@
+// ADD // DODAJ //
+
+MINI_GAME_RUMI_DISCARD_QUESTION    Na pewno chcesz usunąć kartę?
+MINI_GAME_RUMI_EXIT_QUESTION    Chcesz zakończyć grę?
+MINI_GAME_RUMI_EXIT_QUESTION2    Otrzymasz nagrodę na podstawie zdobytych punktów.
+MINI_GAME_RUMI_START_QUESTION    Potrzebujesz %d Yang oraz %d talię aby zagrać.
+MINI_GAME_RUMI_START_QUESTION2    Chcesz zagrać?
