@@ -5,5 +5,5 @@
 71196    ETC    icon/item/71196.tga     
 79505    ETC    icon/item/79505.tga     
 79506    ETC    icon/item/79506.tga
-79507    ETC    icon/item/79507.tga     
-79508    ETC    icon/item/79508.tga
+71197    ETC    icon/item/71197.tga     
+71198    ETC    icon/item/71198.tga
