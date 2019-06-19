@@ -1,0 +1,10 @@
+// ADD // DODAJ //
+
+
+79505	Kolek. Karta Okey	Niesamowicie unikatowa karta do gry w grę karcianą Okey.	Zbierz 24 sztuki aby otrzymać talię!
+79506	Talia Kart Calios	Talia kart, dzięki niej możesz grać w grę karcianą Okey.
+71198	Diamentowe Pudełko Okey	Pudełko zrobione z diamentu, zdobyte podczas rozgrywki w grze karcianej Okey, otwórz aby poznać jej zawartość!
+71197	Platynowe Pudełko Okey	Pudełko zrobione z platyny, zdobyte podczas rozgrywki w grze karcianej Okey, otwórz aby poznać jej zawartość!
+71196	Brązowe Pudełko Okey	Pudełko zrobione z brązu, zdobyte podczas rozgrywki w grze karcianej Okey, otwórz aby poznać jej zawartość!
+71195	Srebrne Pudełko Okey	Pudełko zrobione ze srebra, zdobyte podczas rozgrywki w grze karcianej Okey, otwórz aby poznać jej zawartość!
+71194	Złote Pudełko Okey	Pudełko zrobione ze złota, zdobyte podczas rozgrywki w grze karcianej Okey, otwórz aby poznać jej zawartość!
