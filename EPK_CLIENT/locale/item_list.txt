@@ -2,8 +2,8 @@
 
 71194    ETC    icon/item/71194.tga     
 71195    ETC    icon/item/71195.tga     
-71196    ETC    icon/item/71196.tga     
-79505    ETC    icon/item/79505.tga     
-79506    ETC    icon/item/79506.tga
+71196    ETC    icon/item/71196.tga   
 71197    ETC    icon/item/71197.tga     
 71198    ETC    icon/item/71198.tga
+79505    ETC    icon/item/79505.tga 
+79506    ETC    icon/item/79506.tga
