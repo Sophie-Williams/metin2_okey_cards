@@ -55,7 +55,6 @@ void CSlotWindow::SetCardSlot(DWORD dwIndex, DWORD dwVirtualNumber, BYTE byWidth
     if (!GetSlotPointer(dwIndex, &pSlot))
         return;
 
-
     if (pSlot->isItem)
     if (pSlot->dwItemIndex == dwVirtualNumber)
     {
@@ -68,12 +67,10 @@ void CSlotWindow::SetCardSlot(DWORD dwIndex, DWORD dwVirtualNumber, BYTE byWidth
         return;
     }
 
-
     ClearSlot(pSlot);
     pSlot->dwState = 0;
     pSlot->isItem = TRUE;
     pSlot->dwItemIndex = dwVirtualNumber;
-
 
     if (pImage)
     {
@@ -83,10 +80,8 @@ void CSlotWindow::SetCardSlot(DWORD dwIndex, DWORD dwVirtualNumber, BYTE byWidth
         pSlot->pInstance->SetDiffuseColor(diffuseColor.r, diffuseColor.g, diffuseColor.b, diffuseColor.a);
     }
 
-
     pSlot->byxPlacedItemSize = byWidth;
     pSlot->byyPlacedItemSize = byHeight;
-
 
     if (pSlot->pCoverButton)
     {
