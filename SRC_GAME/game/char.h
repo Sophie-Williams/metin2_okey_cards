@@ -1,19 +1,5 @@
 // FIND // ZNAJDŹ //
 
-#define AI_FLAG_STAYZONE            (1 << 3)
-
-
-// ADD UNDER // DODAJ POD //
-
-#define MAX_CARDS_IN_HAND    5
-#define MAX_CARDS_IN_FIELD    3
-
-
-===============================================================
-    
-
-// FIND // ZNAJDŹ //
-
 }
 ESex GET_SEX(LPCHARACTER ch);
 
@@ -30,8 +16,8 @@ public:
 
         struct CARDS_INFO
         {
-            S_CARD cards_in_hand[MAX_CARDS_IN_HAND];
-            S_CARD cards_in_field[MAX_CARDS_IN_FIELD];
+            S_CARD cards_in_hand[5];
+            S_CARD cards_in_field[3];
             DWORD    cards_left;
             DWORD    field_points;
             DWORD    points;
