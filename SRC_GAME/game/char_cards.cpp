@@ -35,18 +35,18 @@ void CHARACTER::Cards_open(DWORD safemode)
 	}
 	if (character_cards.cards_left <= 0) 
 	{
-		if (GetGold() < 5000000) // set how much yang you want to start game
+		if (GetGold() < 5000000) // set how many yang you want from the player to start the game // ustaw ile chcesz yangow od gracza zeby zaczal gre //
 		{
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have enough money."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have enough money. // Nie masz wystarczajacej liczby yangow."));
 			return;
 		}
-		if (CountSpecifyItem(79506) < 1) // set how much cardsets you want to start game (should be 1)
+		if (CountSpecifyItem(79506) < 1) // set how many cardsets you want from the player to start the game (should be 1) // ustaw ile talii kart chcesz od gracza aby zaczal gre //
 		{
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have any cardsets."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have any cardsets. // Nie masz wystarczajacej ilosci talii kart."));
 			return;
 		}
-		PointChange(POINT_GOLD, -5000000, true);
-		RemoveSpecifyItem(79506, 1);
+		PointChange(POINT_GOLD, -5000000, true); // set how many yang you want from the player to start the game // ustaw ile chcesz yangow od gracza zeby zaczal gre //
+		RemoveSpecifyItem(79506, 1); // set how many cardsets you want from the player to start the game (should be 1) // ustaw ile talii kart chcesz od gracza aby zaczal gre //
 		Cards_clean_list();
 		character_cards.cards_left = 24;
 	}
@@ -75,17 +75,17 @@ void CHARACTER::Cards_pullout()
 	DWORD empty_space = GetEmptySpaceInHand();
 	if (empty_space == -1)
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have space in hands."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have space in hands. // Nie masz miejsca na rece."));
 		return;
 	}
 	if (character_cards.cards_left < 1)
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have cards."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have cards. // Nie masz kart."));
 		return;
 	}
 	if (GetAllCardsCount() >= 5)
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have space on table."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("You dont have space on table. // Nie masz miejsca na stole."));
 		return;
 	}
 	RandomizeCards();
@@ -245,6 +245,7 @@ bool CHARACTER::ValuesAreSame()
 
 bool CHARACTER::CardsMatch()
 {
+	// cards matching function do not touch
 	if (character_cards.cards_in_field[0].value == character_cards.cards_in_field[1].value - 1 && character_cards.cards_in_field[1].value == character_cards.cards_in_field[2].value -1)
 		return true;
 	else if (character_cards.cards_in_field[0].value == character_cards.cards_in_field[2].value - 1 && character_cards.cards_in_field[2].value == character_cards.cards_in_field[1].value -1)
@@ -270,9 +271,9 @@ bool CHARACTER::CheckReward()
 {
     if (TypesAreSame() && ValuesAreSame())
     {
-        character_cards.field_points = 150;    // nie mozna miec takich samych kart wiec zapsuty if
-        character_cards.points += 150;         // nie mozna miec takich samych kart wiec zapsuty if
-        return true;
+        character_cards.field_points = 0;    // nie mozna miec takich samych kart wiec zapsuty if  // you cant get same cards - broken if 
+        character_cards.points += 0;         // nie mozna miec takich samych kart wiec zapsuty if  // you cant get same cards - broken if 
+        return true; // niech zwróci true zeby nie zcrashowalo sie okno gry jezeli ktos bedzie cos odwalac w cheatengine lub kodzie gry. // let system return true to avoid game window crash
     }
     else if (TypesAreSame() && CardsMatch())
     {
@@ -308,8 +309,8 @@ bool CHARACTER::CheckReward()
 		}
 		else
 		{
-			character_cards.field_points = 100;    //czerwony 6-7-8
-			character_cards.points += 100;         //czerwony 6-7-8
+			character_cards.field_points = 100;    //czerwony/niebieski/zolty 6-7-8    red/blue/yellow
+			character_cards.points += 100;         //czerwony/niebieski/zolty 6-7-8    red/blue/yellow
 		}
         return true;
     }
@@ -364,8 +365,8 @@ bool CHARACTER::CheckReward()
     }
     else if (CardsMatch())
     {
-        character_cards.field_points = GetLowestCard()*10;      // 6-7-8 rozny kolor
-        character_cards.points += GetLowestCard()*10;           // 6-7-8 rozny kolor
+        character_cards.field_points = GetLowestCard()*10;      // 6-7-8 rozny kolor//different color
+        character_cards.points += GetLowestCard()*10;           // 6-7-8 rozny kolor//different color
         return true;
     }
     else
@@ -400,23 +401,24 @@ void CHARACTER::ResetField()
 
 void CHARACTER::CardsEnd()
 {
-	if (character_cards.points > 750)
-		AutoGiveItem(71198); // diamond | 750+ p
-	else if (character_cards.points < 750 && character_cards.points >= 600)
-		AutoGiveItem(71197); // platinum | 600 - 750 p
-	else if (character_cards.points < 600 && character_cards.points >= 500)
-		AutoGiveItem(71194); // gold | 500 - 600 p
-	else if (character_cards.points < 500 && character_cards.points >= 300)
-		AutoGiveItem(71195); // silver | 300 - 500 p
-	else if (character_cards.points > 0)
-		AutoGiveItem(71196); // bronze | 0 - 300 p
-	LogManager::instance().OkayEventLog(GetPlayerID(), GetName(), character_cards.points);
+	if (character_cards.points > 750) // points required to get diamond chest
+		AutoGiveItem(71198); // diamond chest id | 750+ pts
+	else if (character_cards.points < 750 && character_cards.points >= 600) // points required to get diamond chest - 600-750
+		AutoGiveItem(71197); // platinum chest id | 600 - 750 pts
+	else if (character_cards.points < 600 && character_cards.points >= 500)  // points required to get diamond chest - 500-600
+		AutoGiveItem(71194); // gold chest id | 500 - 600 pts
+	else if (character_cards.points < 500 && character_cards.points >= 300) // points required to get diamond chest - 300-500
+		AutoGiveItem(71195); // silver chest id | 300 - 500 pts
+	else if (character_cards.points > 0) // points required to get diamond chest - less than 300, but more than 0
+		AutoGiveItem(71196); // bronze chest id | 0 - 300 pts
+	LogManager::instance().OkayEventLog(GetPlayerID(), GetName(), character_cards.points); // remove(or just comment) if youre not using log's in okey cards
 	Cards_clean_list();
 	SendUpdatedInformations();
 }
 
 void CHARACTER::GetGlobalRank(char * buffer, size_t buflen)
 {
+	// db func for pc.get_okay_global_rank
 	std::auto_ptr<SQLMsg> pMsg(DBManager::Instance().DirectQuery("SELECT name, SUM(points) as spoints FROM log.okay_event GROUP BY pid ORDER BY spoints DESC LIMIT 10"));
 	if (pMsg->Get()->uiNumRows == 0)
 	{
@@ -438,7 +440,7 @@ void CHARACTER::GetGlobalRank(char * buffer, size_t buflen)
 		else
 			len += len2;
 
-		len2 = snprintf(buffer + len, buflen - len, "%d. Miejsce - %s - %d pkt.", 
+		len2 = snprintf(buffer + len, buflen - len, "%d. Miejsce - %s - %d pkt.",  // %d (1/2/3.) Place - %s (char name) - %d Points // 1. Place - TAKE - 777 Points
 				pos,
 				row[0],
 				points);
@@ -452,6 +454,7 @@ void CHARACTER::GetGlobalRank(char * buffer, size_t buflen)
 
 void CHARACTER::GetRundRank(char * buffer, size_t buflen)
 {
+	// db func for pc.get_okay_rund_rank
 	std::auto_ptr<SQLMsg> pMsg(DBManager::Instance().DirectQuery("SELECT name, points FROM log.okay_event ORDER BY points DESC LIMIT 10"));
 	if (pMsg->Get()->uiNumRows == 0)
 	{
@@ -473,7 +476,7 @@ void CHARACTER::GetRundRank(char * buffer, size_t buflen)
 		else
 			len += len2;
 
-		len2 = snprintf(buffer + len, buflen - len, "%d. Miejsce - %s - %d pkt.", 
+		len2 = snprintf(buffer + len, buflen - len, "%d. Miejsce - %s - %d pkt.",  // %d (1/2/3.) Place - %s (char name) - %d Points // 1. Place - TAKE - 777 Points
 				pos,
 				row[0],
 				points);
