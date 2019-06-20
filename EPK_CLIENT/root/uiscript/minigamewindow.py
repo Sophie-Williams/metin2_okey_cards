@@ -33,7 +33,7 @@ window = {
 					"y" : 0,
 
 
-					"tooltip_text" : "Gra Karciana Okey",
+					"tooltip_text" : uiScriptLocale.MINI_GAME_RUMI_TITLE,
 					"tooltip_x" : -2,
 					"tooltip_y" : 55,
 					
