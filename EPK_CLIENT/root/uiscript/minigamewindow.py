@@ -1,6 +1,6 @@
 import uiScriptLocale
 
-RUMI_ROOT = "d:/ymir work/ui/minigame/rumi/"
+TAKE_ROOT = "d:/ymir work/ui/minigame/rumi/"
 
 window = {
 	"name" : "MiniGameWindow",
@@ -33,13 +33,13 @@ window = {
 					"y" : 0,
 
 
-					"tooltip_text" : "Okey Kart Oyunu",
+					"tooltip_text" : "Gra Karciana Okey",
 					"tooltip_x" : -2,
 					"tooltip_y" : 55,
 					
-					"default_image" : RUMI_ROOT + "rumi_button_min.sub",
-					"over_image" : RUMI_ROOT + "rumi_button_min.sub",
-					"down_image" : RUMI_ROOT + "rumi_button_min.sub",
+					"default_image" : TAKE_ROOT + "rumi_button_min.sub",
+					"over_image" : TAKE_ROOT + "rumi_button_min.sub",
+					"down_image" : TAKE_ROOT + "rumi_button_min.sub",
 				},
 			),
 		},		
